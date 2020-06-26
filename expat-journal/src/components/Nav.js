@@ -26,10 +26,6 @@ export const Nav = () => {
         <Link className="link" to="/postform">
           Post Form
         </Link>
-
-        <a href="https://bw-expat-journal-1.github.io/marketing-page/index.html">
-          Landing page
-        </a>
       </div>
     </div>
   );

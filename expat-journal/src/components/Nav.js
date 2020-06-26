@@ -11,9 +11,6 @@ export const Nav = () => {
         <h1>Expat Journal</h1>
       </div>
       <div className="navLinks">
-        <Link className="link" to="/">
-          Home
-        </Link>
         <Link className="link" to="/login">
           Login
         </Link>

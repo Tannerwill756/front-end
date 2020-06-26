@@ -25,6 +25,7 @@ const SmallDiv = styled.div`
 
 const Label = styled.label`
   background-color: black;
+  border-radius: 5px;
   color: white;
   padding: 2%;
   margin-top: 6%;

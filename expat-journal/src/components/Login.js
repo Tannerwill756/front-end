@@ -27,6 +27,7 @@ const SmallDiv = styled.div`
 
 const Label = styled.label`
   background-color: black;
+  border-radius: 5px;
   color: white;
   padding: 2%;
   margin: 4% 0;
@@ -34,6 +35,12 @@ const Label = styled.label`
 
 const LogBut = styled.button`
   padding: 2% 5%;
+`;
+
+const PTag = styled.p`
+  margin-top: 8%;
+  background-color: white;
+  padding: 0% 1%;
 `;
 
 // ---------------------------------------------------------------------------------------
@@ -138,6 +145,10 @@ function Login() {
           <LogBut onClick={onSubmit} disabled={formDisabled}>
             Login
           </LogBut>
+
+          <PTag>
+            Don't have an account yet? <a href="/register">Register</a>
+          </PTag>
         </SmallDiv>
       </InnerDiv>
     </MainDiv>

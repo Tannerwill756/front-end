@@ -2,6 +2,48 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
+import bgImg from "../images/loginBackground.jpg";
+
+const MainDiv = styled.div``;
+
+const InnerDiv = styled.div`
+  background-image: url(${bgImg});
+
+  height: 700px;
+  background-position: relative;
+  background-size: cover;
+`;
+
+const SmallDiv = styled.div`
+  width: 500px;
+  display: flex;
+  margin: auto;
+  padding-top: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Label = styled.label`
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  padding: 2%;
+  margin: 4% 0;
+`;
+
+const LogBut = styled.button`
+  padding: 2% 5%;
+`;
+
+const PTag = styled.p`
+  margin-top: 8%;
+  background-color: white;
+  padding: 0% 1%;
+`;
+
+// ---------------------------------------------------------------------------------------
 
 const initialFormValues = {
   username: "",
@@ -69,7 +111,6 @@ function Login() {
     axiosWithAuth()
       .post("/api/auth/login", formValues)
       .then((res) => {
-        // console.log(res.data);
         localStorage.setItem("token", JSON.stringify(res.data.token));
         localStorage.setItem("userId", JSON.stringify(res.data.userId));
         history.push("/post");
@@ -78,31 +119,38 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <MainDiv className="login">
       <header>
         <h1>Login</h1>
       </header>
+      <InnerDiv>
+        <SmallDiv>
+          <Label>Username </Label>
+          <input
+            value={formValues.username}
+            type="text"
+            name="username"
+            onChange={onInputChange}
+          />
 
-      <label>Username </label>
-      <input
-        value={formValues.username}
-        type="text"
-        name="username"
-        onChange={onInputChange}
-      />
+          <Label>Password </Label>
+          <input
+            value={formValues.password}
+            type="password"
+            name="password"
+            onChange={onInputChange}
+          />
+          <br />
+          <LogBut onClick={onSubmit} disabled={formDisabled}>
+            Login
+          </LogBut>
 
-      <label>Password </label>
-      <input
-        value={formValues.password}
-        type="password"
-        name="password"
-        onChange={onInputChange}
-      />
-      <br />
-      <button onClick={onSubmit} disabled={formDisabled}>
-        Login
-      </button>
-    </div>
+          <PTag>
+            Don't have an account yet? <a href="/register">Register</a>
+          </PTag>
+        </SmallDiv>
+      </InnerDiv>
+    </MainDiv>
   );
 }
 

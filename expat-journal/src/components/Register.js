@@ -1,5 +1,41 @@
 import React from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
+import bgImg from "../images/loginBackground.jpg";
+
+const MainDiv = styled.div``;
+
+const InnerDiv = styled.div`
+  background-image: url(${bgImg});
+
+  height: 700px;
+  background-position: relative;
+  background-size: cover;
+`;
+
+const SmallDiv = styled.div`
+  width: 500px;
+  display: flex;
+  margin: auto;
+  padding-top: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Label = styled.label`
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  padding: 2%;
+  margin-top: 6%;
+  margin-bottom: 2%;
+`;
+
+const LogBut = styled.button`
+  margin: 8% 0;
+  padding: 2% 5%;
+`;
 
 export class Register extends React.Component {
   state = {
@@ -47,61 +83,68 @@ export class Register extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler} className="registerForm">
-        <label>Username: </label>
-        <input
-          type="text"
-          name="username"
-          value={this.state.newAccount.username}
-          onChange={this.changeHandler}
-        />
+      <MainDiv>
+        <h1>Register</h1>
+        <InnerDiv>
+          <SmallDiv>
+            <form onSubmit={this.submitHandler} className="registerForm">
+              <Label>Username: </Label>
+              <input
+                type="text"
+                name="username"
+                value={this.state.newAccount.username}
+                onChange={this.changeHandler}
+              />
 
-        <label>Password: </label>
-        <input
-          type="text"
-          name="password"
-          value={this.state.newAccount.password}
-          onChange={this.changeHandler}
-        />
+              <Label>Password: </Label>
+              <input
+                type="text"
+                name="password"
+                value={this.state.newAccount.password}
+                onChange={this.changeHandler}
+              />
 
-        <label>Email: </label>
-        <input
-          type="text"
-          name="email"
-          value={this.state.newAccount.email}
-          onChange={this.changeHandler}
-        />
+              <Label>Email: </Label>
+              <input
+                type="text"
+                name="email"
+                value={this.state.newAccount.email}
+                onChange={this.changeHandler}
+              />
 
-        <label>Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={this.state.newAccount.name}
-          onChange={this.changeHandler}
-        />
+              <Label>Name: </Label>
+              <input
+                type="text"
+                name="name"
+                value={this.state.newAccount.name}
+                onChange={this.changeHandler}
+              />
 
-        <label>Age: </label>
-        <input
-          type="text"
-          name="age"
-          value={this.state.newAccount.age}
-          onChange={this.changeHandler}
-        />
+              <Label>Age: </Label>
+              <input
+                type="text"
+                name="age"
+                value={this.state.newAccount.age}
+                onChange={this.changeHandler}
+              />
 
-        <div>
-          <p style={{ color: "red" }}>{this.state.newAccount.errors}</p>
-        </div>
+              <div>
+                <p style={{ color: "red" }}>{this.state.newAccount.errors}</p>
+              </div>
 
-        <input
-          type="checkbox"
-          name="terms"
-          value={this.state.newAccount.terms}
-          onChange={this.changeHandler}
-        />
-        <span>Terms and conditions</span>
+              <input
+                type="checkbox"
+                name="terms"
+                value={this.state.newAccount.terms}
+                onChange={this.changeHandler}
+              />
+              <span>Terms and conditions</span>
 
-        <button>Register</button>
-      </form>
+              <LogBut>Register</LogBut>
+            </form>
+          </SmallDiv>
+        </InnerDiv>
+      </MainDiv>
     );
   }
 }

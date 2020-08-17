@@ -111,7 +111,6 @@ function Login() {
     axiosWithAuth()
       .post("/api/auth/login", formValues)
       .then((res) => {
-        // console.log(res.data);
         localStorage.setItem("token", JSON.stringify(res.data.token));
         localStorage.setItem("userId", JSON.stringify(res.data.userId));
         history.push("/post");
